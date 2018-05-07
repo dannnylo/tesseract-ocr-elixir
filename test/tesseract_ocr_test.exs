@@ -6,6 +6,7 @@ defmodule TesseractOcrTest do
     assert TesseractOcr.read("./test/resources/blank.tif") == ""
     assert TesseractOcr.read("./test/resources/test.tif") == "43XF"
     assert TesseractOcr.read("./test/resources/test.png") == "HW9W"
+    assert TesseractOcr.read("test/resources/world.png", %{lang: "eng", psm: 7, oem: 1}) == "world"
   end
 
   test "command options generate the options to shell command" do

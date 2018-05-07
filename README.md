@@ -1,5 +1,8 @@
 # TesseractOcr
 
+{<img src="https://api.travis-ci.org/dannnylo/tesseract-ocr-elixir.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/dannnylo/tesseract-ocr-elixir]
+
+
 This package is a wrapper of Tesseract OCR. Helping to read characters on a image.
 
 ## Installation
@@ -15,7 +18,27 @@ def deps do
 end
 ```
 
-** Atention: You will need to install the tesseract Ocr application on your operation system. ***
+*** Atention: You will need to install the tesseract Ocr application on your operation system. ***
+[Instalation wiki][https://github.com/tesseract-ocr/tesseract/wiki]
+
+## Usage
+Basic usage:
+
+```elixir
+  TesseractOCR.read('path/of/my/image.ext')
+```
+
+```elixir
+  iex> TesseractOcr.read("test/resources/world.png")
+  "world"
+```
+
+With options:
+
+```elixir
+  iex> TesseractOcr.read("test/resources/world.png", %{lang: 'por', psm: 7, oem: 1})
+  "world"
+```
 
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
