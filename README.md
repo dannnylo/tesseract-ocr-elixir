@@ -1,7 +1,6 @@
 # TesseractOcr
 
-{<img src="https://api.travis-ci.org/dannnylo/tesseract-ocr-elixir.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/dannnylo/tesseract-ocr-elixir]
-
+[![Build Status](https://api.travis-ci.org/dannnylo/tesseract-ocr-elixir.svg)](https://travis-ci.org/dannnylo/tesseract-ocr-elixir)
 
 This package is a wrapper of Tesseract OCR. Helping to read characters on a image.
 
