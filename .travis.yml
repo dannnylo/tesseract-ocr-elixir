@@ -1,0 +1,5 @@
+language: elixir
+addons:
+  apt:
+    packages:
+    - tesseract-ocr
