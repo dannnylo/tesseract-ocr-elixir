@@ -18,7 +18,7 @@ end
 ```
 
 *** Atention: You will need to install the tesseract Ocr application on your operation system. ***
-[Instalation wiki][https://github.com/tesseract-ocr/tesseract/wiki]
+[Instalation wiki](https://github.com/tesseract-ocr/tesseract/wiki)
 
 ## Usage
 Basic usage:
