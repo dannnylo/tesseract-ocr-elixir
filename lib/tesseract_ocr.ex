@@ -32,20 +32,21 @@ defmodule TesseractOcr do
 
   ## Examples
 
-    iex> TesseractOcr.command_options("test/resources/world.png", %{lang: "por", oem: "1"})
-    ["test/resources/world.png", "stdout", "--lang por", "--oem 1"]
+    iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", oem: "1"})
+    ["test/resources/world.png", "stdout", "-l", "por", "--oem","1"]
 
-    iex> TesseractOcr.command_options("test/resources/world.png", %{lang: "por", psm: 1})
-    ["test/resources/world.png", "stdout", "--lang por", "--psm 1"]
+    iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", psm: 1})
+    ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
 
   """
   def command_options(path, options) do
     [path,
       "stdout",
-      make_option(:lang, options[:lang]),
+      make_short_option(:l, options[:l] || options[:lang]),
       make_option(:oem, options[:oem]),
       make_option(:psm, options[:psm])
     ]
+    |> List.flatten()
     |> Enum.filter(& !is_nil(&1))
   end
 
@@ -58,6 +59,14 @@ defmodule TesseractOcr do
   end
 
   defp make_option(name, value) do
-    "--#{name} " <> value
+    ["--#{name}", value]
+  end
+
+  defp make_short_option(_name, value) when is_nil(value) do
+    nil
+  end
+
+  defp make_short_option(name, value) do
+    ["-#{name}", value]
   end
 end
