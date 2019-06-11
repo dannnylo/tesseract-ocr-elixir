@@ -44,7 +44,8 @@ defmodule TesseractOcr do
       "stdout",
       make_short_option(:l, options[:l] || options[:lang]),
       make_option(:oem, options[:oem]),
-      make_option(:psm, options[:psm])
+      make_option(:psm, options[:psm]),
+      make_short_option(:c, options[:c])
     ]
     |> List.flatten()
     |> Enum.filter(& !is_nil(&1))
