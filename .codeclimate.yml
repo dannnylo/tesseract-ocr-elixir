@@ -1,0 +1,3 @@
+plugins:
+  credo:
+    enabled: true
