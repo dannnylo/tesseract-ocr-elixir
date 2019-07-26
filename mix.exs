@@ -8,6 +8,7 @@ defmodule TesseractOcr.MixProject do
       elixir: "~> 1.6",
       description: "A wrapper for Tesseract OCR",
       start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
       deps: deps(),
       package: package(),
       source_url: "https://github.com/dannnylo/tesseract-ocr-elixir"
@@ -25,7 +26,8 @@ defmodule TesseractOcr.MixProject do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test},
     ]
   end
 

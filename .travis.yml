@@ -12,3 +12,10 @@ before_install:
   - sudo add-apt-repository ppa:alex-p/tesseract-ocr -y
   - sudo apt-get update -q
   - sudo apt-get install tesseract-ocr tesseract-ocr-eng ghostscript -y
+
+after_script:
+  - mix deps.get --only docs
+  - MIX_ENV=test mix credo --strict
+  - MIX_ENV=test mix coveralls --verbose
+  - MIX_ENV=test mix coveralls.json --verbose
+  - MIX_ENV=test mix coveralls.travis
