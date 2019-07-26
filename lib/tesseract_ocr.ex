@@ -15,7 +15,8 @@ defmodule TesseractOcr do
   """
   def read(path, options \\ %{}) do
     # #{lang} #{oem} #{psm} #{tessdata_dir} #{user_words} #{user_patterns} #{config_file} #{clear_console_output} #{options_cmd.join(' ')}
-    command(path, options)
+    path
+    |> command(options)
     |> elem(0)
     |> String.trim
   end
@@ -38,8 +39,8 @@ defmodule TesseractOcr do
     iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", psm: 1})
     ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
 
-    iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", psm: 1})
-    ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
+    iex> TesseractOcr.command_options("test/resources/world.png", %{c: "var=b"})
+    ["test/resources/world.png", "stdout", "-c", "var=b"]
 
   """
   def command_options(path, options) do
