@@ -38,6 +38,9 @@ defmodule TesseractOcr do
     iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", psm: 1})
     ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
 
+    iex> TesseractOcr.command_options("test/resources/world.png", %{l: "por", psm: 1})
+    ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
+
   """
   def command_options(path, options) do
     [path,

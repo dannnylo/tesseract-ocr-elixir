@@ -1,6 +1,14 @@
+dist: bionic
 language: elixir
-elixir: '1.6'
+elixir:
+  - '1.6'
+  - '1.9'
 addons:
   apt:
     packages:
     - tesseract-ocr
+
+before_install:
+  - sudo add-apt-repository ppa:alex-p/tesseract-ocr -y
+  - sudo apt-get update -q
+  - sudo apt-get install tesseract-ocr tesseract-ocr-eng ghostscript -y
