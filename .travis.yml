@@ -7,11 +7,17 @@ addons:
   apt:
     packages:
     - tesseract-ocr
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d263af6633d496aebee2d97ddc12eccf98ab39e72de1734b55023d587d928ed1
 
 before_install:
   - sudo add-apt-repository ppa:alex-p/tesseract-ocr -y
   - sudo apt-get update -q
   - sudo apt-get install tesseract-ocr tesseract-ocr-eng ghostscript -y
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 after_script:
   - mix deps.get --only docs
@@ -19,3 +25,4 @@ after_script:
   - MIX_ENV=test mix coveralls --verbose
   - MIX_ENV=test mix coveralls.json --verbose
   - MIX_ENV=test mix coveralls.travis
+  - ./cc-test-reporter after-build -r "$CC_TEST_REPORTER_ID" -t excoveralls --exit-code $TRAVIS_TEST_RESULT
