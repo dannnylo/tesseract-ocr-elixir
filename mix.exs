@@ -4,7 +4,7 @@ defmodule TesseractOcr.MixProject do
   def project do
     [
       app: :tesseract_ocr,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.6",
       description: "A wrapper for Tesseract OCR",
       start_permanent: Mix.env() == :prod,
