@@ -13,7 +13,7 @@ defmodule TesseractOcr do
       "world"
 
   """
-  def read(path, options \\ %{}) do
+  def read(path, options \\ %{}) when is_binary(path) do
     # #{lang} #{oem} #{psm} #{tessdata_dir} #{user_words} #{user_patterns} #{config_file} #{clear_console_output} #{options_cmd.join(' ')}
     path
     |> command(options)
