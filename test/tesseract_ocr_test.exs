@@ -14,4 +14,10 @@ defmodule TesseractOcrTest do
     assert TesseractOcr.command_options("test/resources/world.png", %{psm: "1"}) === ["test/resources/world.png", "stdout", "--psm", "1"]
     assert TesseractOcr.command_options("test/resources/world.png", %{}) === ["test/resources/world.png", "stdout"]
   end
+
+  test "raise exception when non binnary used as path" do
+    assert_raise FunctionClauseError, fn ->
+      TesseractOcr.read({})
+    end
+  end
 end
