@@ -12,7 +12,7 @@ by adding `tesseract_ocr` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:tesseract_ocr, "~> 0.1.0"}
+    {:tesseract_ocr, "~> 0.1.3"}
   ]
 end
 ```
