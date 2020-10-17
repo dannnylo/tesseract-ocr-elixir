@@ -1,13 +1,12 @@
 defmodule TesseractOcr.Words do
   @moduledoc """
   Documentation for TesseractOcrWords.
-  This Module is a wrapper of tesseract-ocr box
   """
 
   import TesseractOcr.Utils
 
   @doc """
-  This function reads the words on image by OCR and returns with positions
+  This function reads the words on image by OCR and returns with positions.
 
   ## Examples
 

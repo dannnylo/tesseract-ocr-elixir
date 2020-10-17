@@ -1,28 +1,28 @@
 defmodule TesseractOcr.Utils do
   @moduledoc """
-    Utilities to run tesseract-ocr
+  Utilities to run `tesseract-ocr` binary.
   """
 
   @doc """
-  This function executes the tesseract on system and return the output
+  This function executes the tesseract on system and return the output.
   """
   def command(path, output, options) do
     System.cmd("tesseract", command_options(path, output, options))
   end
 
   @doc """
-  This function will mount the options to tesseract OCR
+  This function will mount the options to Tesseract OCR.
 
   ## Examples
 
-    iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{l: "por", oem: "1"})
-    ["test/resources/world.png", "stdout", "-l", "por", "--oem","1"]
+      iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{l: "por", oem: "1"})
+      ["test/resources/world.png", "stdout", "-l", "por", "--oem","1"]
 
-    iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{l: "por", psm: 1})
-    ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
+      iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{l: "por", psm: 1})
+      ["test/resources/world.png", "stdout", "-l", "por", "--psm", "1"]
 
-    iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{c: "var=b"})
-    ["test/resources/world.png", "stdout", "-c", "var=b"]
+      iex> TesseractOcr.Utils.command_options("test/resources/world.png", "stdout", %{c: "var=b"})
+      ["test/resources/world.png", "stdout", "-c", "var=b"]
 
   """
   def command_options(path, output, options) do
