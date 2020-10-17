@@ -12,7 +12,7 @@ by adding `tesseract_ocr` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:tesseract_ocr, "~> 0.1.0"}
+    {:tesseract_ocr, "~> 0.1.3"}
   ]
 end
 ```
@@ -39,6 +39,12 @@ With options:
   "world"
 ```
 
+Get words positions:
+
+```elixir
+iex> TesseractOcr.Words.read("test/resources/world.png")
+      [%{confidence: 95, word: "world", x_end: 185, x_start: 2, y_end: 56, y_start: 2}]
+```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
