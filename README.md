@@ -17,8 +17,7 @@ source text recognition (OCR) Engine.
 
 ## Installation
 
-The package can be installed by adding `tesseract_ocr` to your list of
-dependencies in `mix.exs`:
+Add `tesseract_ocr` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -51,7 +50,7 @@ iex> TesseractOcr.Words.read("test/resources/world.png")
 [%{confidence: 95, word: "world", x_end: 185, x_start: 2, y_end: 56, y_start: 2}]
 ```
 
-Convert imagem into PDF with text.
+Convert image into PDF with text.
 
 ```elixir
 iex> TesseractOcr.PDF.read("test/resources/world.png", "/tmp/test")
