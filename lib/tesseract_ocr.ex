@@ -1,13 +1,12 @@
 defmodule TesseractOcr do
   @moduledoc """
   Documentation for TesseractOcr.
-  This Module is a wrapper of tesseract-ocr
   """
 
   import TesseractOcr.Utils
 
   @doc """
-  This function reads the chars on image by OCR
+  This function reads the chars on image by OCR.
 
   ## Examples
 

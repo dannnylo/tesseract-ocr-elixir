@@ -1,28 +1,34 @@
 defmodule TesseractOcr.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/dannnylo/tesseract-ocr-elixir"
+
   def project do
     [
       app: :tesseract_ocr,
       version: "0.1.3",
       elixir: "~> 1.6",
-      description: "A wrapper for Tesseract OCR",
+      description: description(),
       start_permanent: Mix.env() == :prod,
-      test_coverage: [tool: ExCoveralls],
       deps: deps(),
       package: package(),
-      source_url: "https://github.com/dannnylo/tesseract-ocr-elixir"
+      docs: docs(),
+      test_coverage: [tool: ExCoveralls]
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
+  defp description do
+    """
+    Elixir wrapper for Tesseract OCR, an open source text recognition engine.
+    """
+  end
+
   defp deps do
     [
       {:secure_random, ">= 0.0.0"},
@@ -36,7 +42,17 @@ defmodule TesseractOcr.MixProject do
     [
       maintainers: ["Danilo Jeremias da Silva"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/dannnylo/tesseract-ocr-elixir"}
+      links: %{"GitHub" => @source_url}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      source_url: @source_url,
+      extras: [
+        "README.md"
+      ]
     ]
   end
 end

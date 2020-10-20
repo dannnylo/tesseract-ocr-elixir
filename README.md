@@ -1,13 +1,24 @@
 # TesseractOcr
 
-[![Build Status](https://api.travis-ci.org/dannnylo/tesseract-ocr-elixir.svg)](https://travis-ci.org/dannnylo/tesseract-ocr-elixir)
+[![travis-ci.org](https://api.travis-ci.org/dannnylo/tesseract-ocr-elixir.svg)](https://travis-ci.org/dannnylo/tesseract-ocr-elixir)
+[![hex.pm](https://img.shields.io/hexpm/v/tesseract_ocr.svg)](https://hex.pm/packages/tesseract_ocr)
+[![hex.pm](https://img.shields.io/badge/docs-hexpm-blue.svg)](https://hexdocs.pm/tesseract_ocr)
+[![hex.pm](https://img.shields.io/hexpm/dt/tesseract_ocr.svg)](https://hex.pm/packages/tesseract_ocr)
+[![hex.pm](https://img.shields.io/hexpm/l/tesseract_ocr.svg)](https://hex.pm/packages/tesseract_ocr)
+[![github.com](https://img.shields.io/github/last-commit/dannnylo/tesseract-ocr-elixir.svg)](https://github.com/dannnylo/tesseract-ocr-elixir/commits/master)
 
-This package is a wrapper of Tesseract OCR. Helping to read characters on a image.
+Elixir wrapper for [Tesseract OCR](https://github.com/tesseract-ocr), an open
+source text recognition (OCR) Engine.
+
+## Requirements
+
+- Elixir 1.6+ / Erlang OTP 19+
+- [Tesseract OCR binary](https://github.com/tesseract-ocr/tesseract/wiki)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `tesseract_ocr` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `tesseract_ocr` to your list of
+dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -17,35 +28,25 @@ def deps do
 end
 ```
 
-*** Atention: You will need to install the tesseract Ocr application on your operation system. ***
-[Instalation wiki](https://github.com/tesseract-ocr/tesseract/wiki)
-
 ## Usage
-Basic usage:
+
+Reading an image file.
 
 ```elixir
-  TesseractOCR.read('path/of/my/image.ext')
+iex> TesseractOcr.read("test/resources/world.png")
+"world"
 ```
+
+With additional options.
 
 ```elixir
-  iex> TesseractOcr.read("test/resources/world.png")
-  "world"
+iex> TesseractOcr.read("test/resources/world.png", %{lang: 'por', psm: 7, oem: 1})
+"world"
 ```
 
-With options:
-
-```elixir
-  iex> TesseractOcr.read("test/resources/world.png", %{lang: 'por', psm: 7, oem: 1})
-  "world"
-```
-
-Get words positions:
+Get words positions.
 
 ```elixir
 iex> TesseractOcr.Words.read("test/resources/world.png")
-      [%{confidence: 95, word: "world", x_end: 185, x_start: 2, y_end: 56, y_start: 2}]
+[%{confidence: 95, word: "world", x_end: 185, x_start: 2, y_end: 56, y_start: 2}]
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/tesseract_ocr](https://hexdocs.pm/tesseract_ocr).
