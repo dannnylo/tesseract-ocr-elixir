@@ -23,7 +23,7 @@ dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:tesseract_ocr, "~> 0.1.3"}
+    {:tesseract_ocr, "~> 0.1.4"}
   ]
 end
 ```
@@ -49,4 +49,11 @@ Get words positions.
 ```elixir
 iex> TesseractOcr.Words.read("test/resources/world.png")
 [%{confidence: 95, word: "world", x_end: 185, x_start: 2, y_end: 56, y_start: 2}]
+```
+
+Convert imagem into PDF with text.
+
+```elixir
+iex> TesseractOcr.PDF.read("test/resources/world.png", "/tmp/test")
+"/tmp/test.pdf"
 ```
