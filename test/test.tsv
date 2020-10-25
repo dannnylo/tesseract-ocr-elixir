@@ -1,0 +1,6 @@
+level	page_num	block_num	par_num	line_num	word_num	left	top	width	height	conf	text
+1	1	0	0	0	0	0	0	295	71	-1	
+2	1	1	0	0	0	2	2	183	54	-1	
+3	1	1	1	0	0	2	2	183	54	-1	
+4	1	1	1	1	0	2	2	183	54	-1	
+5	1	1	1	1	1	2	2	183	54	95	world

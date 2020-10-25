@@ -57,3 +57,9 @@ Convert imagem into PDF with text.
 iex> TesseractOcr.PDF.read("test/resources/world.png", "/tmp/test")
 "/tmp/test.pdf"
 ```
+Convert imagem into TSV with text.
+
+```elixir
+iex> TesseractOcr.TSV.read("test/resources/world.png", "/tmp/test")
+"/tmp/test.tsv"
+```
