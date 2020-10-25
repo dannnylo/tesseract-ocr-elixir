@@ -22,7 +22,7 @@ Add `tesseract_ocr` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:tesseract_ocr, "~> 0.1.4"}
+    {:tesseract_ocr, "~> 0.1.5"}
   ]
 end
 ```
@@ -55,4 +55,10 @@ Convert image into PDF with text.
 ```elixir
 iex> TesseractOcr.PDF.read("test/resources/world.png", "/tmp/test")
 "/tmp/test.pdf"
+```
+Convert image into TSV with text.
+
+```elixir
+iex> TesseractOcr.TSV.read("test/resources/world.png", "/tmp/test")
+"/tmp/test.tsv"
 ```
