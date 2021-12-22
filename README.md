@@ -39,7 +39,7 @@ iex> TesseractOcr.read("test/resources/world.png")
 With additional options.
 
 ```elixir
-iex> TesseractOcr.read("test/resources/world.png", %{lang: 'por', psm: 7, oem: 1})
+iex> TesseractOcr.read("test/resources/world.png", %{lang: "por", psm: 7, oem: 1})
 "world"
 ```
 
