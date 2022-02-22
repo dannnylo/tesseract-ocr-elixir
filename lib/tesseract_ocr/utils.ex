@@ -31,7 +31,11 @@ defmodule TesseractOcr.Utils do
       output,
       make_short_option(:l, options[:l] || options[:lang]),
       make_option(:oem, options[:oem]),
+      make_option(:dpi, options[:dpi]),
       make_option(:psm, options[:psm]),
+      make_option("tessdata-dir", options[:tessdata_dir]),
+      make_option("user-patterns", options[:user_patterns]),
+      make_option("user-words", options[:user_words]),
       make_short_option(:c, options[:c])
     ]
     |> List.flatten()
