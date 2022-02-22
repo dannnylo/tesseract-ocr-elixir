@@ -54,6 +54,12 @@ defmodule TesseractOcr.Utils do
     nil
   end
 
+  defp make_short_option(name, value) when is_list(value) do
+    Enum.flat_map(value, fn v ->
+      ["-#{name}", v]
+    end)
+  end
+
   defp make_short_option(name, value) do
     ["-#{name}", value]
   end
