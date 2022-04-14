@@ -31,7 +31,11 @@ defmodule TesseractOcr.Utils do
       output,
       make_short_option(:l, options[:l] || options[:lang]),
       make_option(:oem, options[:oem]),
+      make_option(:dpi, options[:dpi]),
       make_option(:psm, options[:psm]),
+      make_option("tessdata-dir", options[:tessdata_dir]),
+      make_option("user-patterns", options[:user_patterns]),
+      make_option("user-words", options[:user_words]),
       make_short_option(:c, options[:c])
     ]
     |> List.flatten()
@@ -52,6 +56,12 @@ defmodule TesseractOcr.Utils do
 
   defp make_short_option(_name, value) when is_nil(value) do
     nil
+  end
+
+  defp make_short_option(name, value) when is_list(value) do
+    Enum.flat_map(value, fn v ->
+      ["-#{name}", v]
+    end)
   end
 
   defp make_short_option(name, value) do
